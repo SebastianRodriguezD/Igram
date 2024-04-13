@@ -17,9 +17,11 @@ document.addEventListener('DOMContentLoaded', () => {
 searchButton.addEventListener('click', () => {
   const query = searchInput.value.trim()
   if (query !== '') {
-    searchImages(query, page, perPage).then((data) =>
+    page = 1
+    searchImages(query, page, perPage).then((data) => {
+      imageContainer.innerHTML = ''
       displayImages(data, imageContainer)
-    )
+    })
   } else {
     getRandomImages(page, perPage).then((data) =>
       displayImages(data, imageContainer)
