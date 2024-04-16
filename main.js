@@ -1,12 +1,14 @@
 import { getRandomImages } from './src/ramdon/getRandomImages.js'
 import { searchImages } from './src/search/searchImages.js'
 import { displayImages } from './src/display/displayImages.js'
+import { refrescarPagina } from './src/refresh/refresh.js'
 
 const searchInput = document.getElementById('searchInput')
 const searchButton = document.getElementById('searchButton')
 const imageContainer = document.getElementById('imageContainer')
 let page = 1
-let perPage = 20
+let perPage = 25
+refrescarPagina()
 
 document.addEventListener('DOMContentLoaded', () => {
   getRandomImages(page, perPage).then((data) =>
@@ -45,3 +47,4 @@ window.addEventListener('scroll', () => {
     }
   }
 })
+
